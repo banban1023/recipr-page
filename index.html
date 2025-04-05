@@ -10,68 +10,273 @@
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
+    @font-face {
+      font-family: 'Young Serif';
+      src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf) format('truetype');
+    }
+    @font-face {
+      font-family: 'Ourfit';
+      src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+    }
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    body {
+      background-color: var(--Stone-primary);
+      font-family: 'Ourfit';
+      color: var(--Stone-font);
+    }
+    :root {
+      --White: hsl(0, 0%, 100%);
+      --Stone-primary: hsl(30, 54%, 90%);
+      --Stone-150: hsl(30, 18%, 87%);
+      --Stone-font: hsl(30, 10%, 34%);
+      --Stone-fonttitle: hsl(24, 5%, 18%);
+      --Brown-list: hsl(14, 45%, 36%);
+      --Rose-signtitle: hsl(332, 51%, 32%);
+      --Rose-sign: hsl(330, 100%, 98%);
+    }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .attribution a { color: hsl(228, 45%, 44%); }
+    .card {
+      width: 738px;
+      background-color: var(--White);
+      margin: 123px auto;
+
+      border-radius: 20px;
+    }
+    .card head {
+      width: 100%;
+    }
+    .card main {
+      padding: 0 41px;
+    }
+    .card header .pic {
+      padding: 41px 41px 0;
+      width: 100%;
+    }
+    .card header .pic img {
+      width: 100%;
+      border-radius: 10px;
+      vertical-align: top;
+    }
+    .card header h1 {
+      font-size: 36px;
+      font-family: 'Young Serif';
+      color: var(--Stone-fonttitle);
+      padding: 0 41px;
+      font-weight: normal;
+      margin-top: 34px;
+    }
+    .card header .msg {
+      padding: 18px 41px 35px;
+    }
+    .card main .sign {
+      background-color: var(--Rose-sign);
+      padding: 30px 30px 18px;
+      border-radius: 10px;
+    }
+    .card main .sign h3 {
+      color: var(--Rose-signtitle);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card main .sign ul {
+      margin-left: 22px;
+    }
+    .card main .sign ul li::marker {
+      color: var(--Rose-signtitle);
+      font-size: 12px;
+    }
+    .card main .sign ul li {
+      text-indent: 16px;
+      line-height: 32px;
+    }
+    .card main .sign ul li span{
+      font-weight: 700;
+    }
+    .card main .content .msg{
+      padding: 36px 0;
+      line-height: 22px;
+      border-top: 1px solid var(--Stone-150);
+    }
+    .card main .content .msg:last-child {
+      padding-bottom: 29px;
+    }
+    .card main .content .msg:first-child {
+      border: none;
+    }
+    .card main .content .msg h3 {
+      font-size: 28px;
+      font-family: 'Young Serif';
+      font-weight: normal;
+      color: var(--Brown-list);
+    }
+    .card main .content .msg ul {
+      margin: 20px 0 0 18px;
+    }
+    .card main .content .msg ul li {
+      text-indent: 16px;
+      line-height: 32px;
+    }
+    .card main .content .msg ul li::marker {
+      color: var(--Brown-list);
+      font-size: 12px;
+    }
+    .card main .content .msg ol {
+      margin: 20px 0 0 18px;
+    }
+    .card main .content .msg ol li {
+      text-indent: 16px;
+      line-height: 26px;
+      margin-top: 5px;
+    }
+    .card main .content .msg ol li::marker {
+      color: var(--Brown-list);
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .card main .content .msg ol li span{
+      font-weight: 700;
+    }
+    .card main .content .msg p {
+      margin-top: 20px;
+    }
+    .card main .content .msg table {
+      margin-top: 20px;
+      border-collapse: collapse; /* 合并边框模型 */
+      width: 100%;
+    }
+    .card main .content .msg table tr {
+      border-bottom: 1px solid var(--Stone-150);
+      line-height: 48px;
+    }
+    .card main .content .msg table tr:last-child {
+      border: none;
+    }
+    .card main .content .msg table tr td {
+      width: 50%;
+    }
+    .card main .content .msg table tr td:nth-child(1) {
+      padding-left: 28px;
+    }.card main .content .msg table tr td:nth-child(2) {
+      padding-left: 0;
+      color: var(--Brown-list);
+      font-weight: 700;
+    }
+    @media (max-width: 768px) {
+      body {
+        background-color: var(--White);
+      }
+      .card {
+        width: 100%;
+        border-radius: 0;
+        margin: 0;
+      }
+      .card header .pic {
+        padding: 0;
+      }
+      .card header .pic img {
+      width: 100%;
+      border-radius: 0;
+      vertical-align: top;
+      }
+      .card header h1 {
+        padding: 0 32px;
+        line-height: 35px;
+      }
+      .card header .msg {
+        padding: 18px 32px 35px;
+      }
+      .card main {
+        padding: 0 32px;
+      }
+    }
   </style>
 </head>
 <body>
-
-  Simple Omelette Recipe
-
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
-
-  Preparation time
-
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
-
-  Ingredients
-
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
-
-  Instructions
-
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-  You can add a tablespoon of water or milk for a fluffier texture.
-
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
-
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-  the eggs evenly coat the surface.
-
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
-  middle, sprinkle your chosen fillings over one half of the omelette.
-
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
-  fillings. Let it cook for another minute, then slide it onto a plate.
-
-  Enjoy: Serve hot, with additional salt and pepper if needed.
-
-  Nutrition
-
-  The table below shows nutritional values per serving without the additional fillings.
-
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="card">
+    <header>
+      <div class="pic"><img src="./assets/images/image-omelette.jpeg" alt=""></div>
+      <h1>Simple Omelette Recipe</h1>
+      <div class="msg">
+        An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+        to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+      </div>
+    </header>
+    <main>
+      <div class="sign">
+        <h3>Preparation time</h3>
+        <ul>
+          <li><span>Total:</span> Approximately 10 minutes</li>
+          <li><span>Preparation:</span> 5 minutes</li>
+          <li><span>Cooking:</span> 5 minutes</li>
+        </ul>
+      </div>
+      <div class="content">
+        <div class="msg">
+          <h3>Ingredients</h3>
+          <ul>
+            <li>2-3 large eggs</li>
+            <li>Salt, to taste</li>
+            <li>Pepper, to taste</li>
+            <li>1 tablespoon of butter or oil</li>
+            <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+          </ul>
+        </div>
+        <div class="msg">
+          <h3>Instructions</h3>
+          <ol>
+            <li><span>Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. You can add a tablespoon of water or milk for a fluffier texture.</li>
+            <li><span>Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter or oil.</li>
+            <li><span>Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure the eggs evenly coat the surface.</li>
+            <li><span>Add fillings (optional):</span> When the eggs begin to set at the edges but are still slightly runny in the 
+              middle, sprinkle your chosen fillings over one half of the omelette.</li>
+            <li><span>Fold and serve:</span> As the omelette continues to cook, carefully lift one edge and fold it over the 
+              fillings. Let it cook for another minute, then slide it onto a plate.</li>
+            <li><span>Enjoy:</span> Serve hot, with additional salt and pepper if needed.</li>
+          </ol>
+        </div>
+        <div class="msg">
+          <h3>Nutrition</h3>
+          <p>The table below shows nutritional values per serving without the additional fillings.</p>
+          <table>
+            <tr>
+              <td>Calories</td>
+              <td>277kcal</td>
+            </tr>
+            <tr>
+              <td>Carbs</td>
+              <td>0g</td>
+            </tr>
+            <tr>
+              <td>Protein</td>
+              <td>20g</td>
+            </tr>
+            <tr>
+              <td>Fat</td>
+              <td>22g</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
   </div>
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">banban</a>.
+    </div>
+  </footer>
 </body>
 </html>
